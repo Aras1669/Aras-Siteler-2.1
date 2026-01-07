@@ -1,19 +1,19 @@
-// Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// 🔴 BURAYI KENDİ FIREBASE CONFIG'İNLE DEĞİŞTİR
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  projectId: "PROJECT_ID",
-  appId: "APP_ID"
+  apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
+  authDomain: "login-aras-siteler.firebaseapp.com",
+  projectId: "login-aras-siteler",
+  storageBucket: "login-aras-siteler.firebasestorage.app",
+  messagingSenderId: "236271357844",
+  appId: "1:236271357844:web:6ad66b5e19bc49ea3cc981",
+  measurementId: "G-ZLEH0TKWLK"
 };
 
 // Firebase başlat
@@ -63,3 +63,4 @@ onAuthStateChanged(auth, (user) => {
     console.log("Oturum kapalı");
   }
 });
+
