@@ -1,53 +1,65 @@
-/*
-async function hash(text){
-    const msgUint8 = new TextEncoder().encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-}
-*/
+// Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-const dogruParola = "Aras";
-
-
-window.onload = function() {
-    if (localStorage.getItem("Kontrol")) {
-        document.getElementById("Sifre").style.display = "none";
-        document.getElementById("İcerik").style.display = "flex";
-    }
-}
-function Temizle() {
-    localStorage.clear()
-}
-
-function ParolaDeneme() {
-    const gelenParola = document.getElementById("Parola").value;
-
-    if(gelenParola === dogruParola){
-        document.getElementById("Sifre").style.display = "none";
-        document.getElementById("İcerik").style.display = "flex";
-        localStorage.setItem("Kontrol", true);
-    } else {
-        alert("Şifre hatalı!");
-    }
+// 🔴 BURAYI KENDİ FIREBASE CONFIG'İNLE DEĞİŞTİR
+const firebaseConfig = {
+  apiKey: "API_KEY",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  projectId: "PROJECT_ID",
+  appId: "APP_ID"
 };
 
+// Firebase başlat
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-function NoteBookGit() {
-    window.open("https://aras1669.github.io/Note-Book/")
-}
- 
-function GoogleHızlıGit() {
-    window.open("https://aras1669.github.io/Google-Hizli/")
-}
+// Kayıt Ol
+window.register = () => {
+  const email = document.getElementById("rEmail").value;
+  const pass  = document.getElementById("rPass").value;
 
-function SaatGit() {
-    window.open("https://aras1669.github.io/Saat/")
-}
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Kayıt başarılı");
+    })
+    .catch(err => {
+      alert(err.message);
+    });
+};
 
-/*
-    window.open("http://127.0.0.1:5500/Google%20H%C4%B1zl%C4%B1/")
-    window.open("http://127.0.0.1:5500/NoteBook/")
-    window.open("http://127.0.0.1:5500/Saat/")
-    0225-221224062812-01210122-2801202411
-*/
+// Giriş Yap
+window.login = () => {
+  const email = document.getElementById("lEmail").value;
+  const pass  = document.getElementById("lPass").value;
+
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Giriş başarılı");
+    })
+    .catch(err => {
+      alert(err.message);
+    });
+};
+
+// Çıkış Yap (opsiyonel)
+window.logout = () => {
+  signOut(auth).then(() => {
+    alert("Çıkış yapıldı");
+  });
+};
+
+// Oturum durumu (opsiyonel)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Oturum açık:", user.email);
+  } else {
+    console.log("Oturum kapalı");
+  }
+});
