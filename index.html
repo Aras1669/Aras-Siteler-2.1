@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aras Siteleri</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <title>Kullanıcı Girişi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #1e1e1e;
+      padding: 25px;
+      width: 320px;
+      border-radius: 8px;
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #4caf50;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .divider {
+      margin: 15px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-    <div id="Sifre" style="display: flex;">
-        <div id="SifreKismi">
-            <input type="password" id="Parola" placeholder="Siteye Girmek İçin Parolayı Giriniz !">
-            <br>
-            <button id="SiteyeGir" onclick="ParolaDeneme()">Siteye Gir</button>
-        </div>
-    </div>
-    <div id="İcerik" style="display: none;">
-        <div onclick="Temizle()">
-            <button>Önceki Girişleri Sıfırla</button>
-        </div>
-        <br>
-        <br>
-        <button class="Siteler" onclick="NoteBookGit()">
-            <div id="NoteBookSimge"></div>
-            <div class="Yazı">Note Book</div>
-        </button>
-        <br>
-        <br>
-        <br>
-        <button class="Siteler" onclick="GoogleHızlıGit()">
-            <div id="GoogleHızlıSimge"></div>
-            <div class="Yazı">Google Hızlı</div>
-        </button>
-        <br>
-        <br>
-        <br>
-        <button class="Siteler" onclick="SaatGit()">
-            <div id="SaatSimge"></div>
-            <div class="Yazı">Saat Kaç</div>
-        </button>
-    </div>
+
+<div class="box">
+  <h2>Kayıt Ol</h2>
+  <input type="email" id="rEmail" placeholder="E-posta">
+  <input type="password" id="rPass" placeholder="Şifre">
+  <button onclick="register()">Kayıt Ol</button>
+
+  <div class="divider">—</div>
+
+  <h2>Giriş Yap</h2>
+  <input type="email" id="lEmail" placeholder="E-posta">
+  <input type="password" id="lPass" placeholder="Şifre">
+  <button onclick="login()">Giriş Yap</button>
+</div>
+
+<script type="module" src="auth.js"></script>
 </body>
-<script src="index.js"></script>
 </html>
-
-<!-- Kullandıklarım
-
-
-
--->
