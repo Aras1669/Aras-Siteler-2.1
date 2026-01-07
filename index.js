@@ -1,11 +1,11 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// ✅ CDN ile Firebase import (DOĞRU)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
   authDomain: "login-aras-siteler.firebaseapp.com",
@@ -16,51 +16,25 @@ const firebaseConfig = {
   measurementId: "G-ZLEH0TKWLK"
 };
 
-// Firebase başlat
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Kayıt Ol
-window.register = () => {
-  const email = document.getElementById("rEmail").value;
-  const pass  = document.getElementById("rPass").value;
+// Kayıt
+document.getElementById("registerBtn").addEventListener("click", () => {
+  const email = rEmail.value;
+  const pass = rPass.value;
 
   createUserWithEmailAndPassword(auth, email, pass)
-    .then(() => {
-      alert("Kayıt başarılı");
-    })
-    .catch(err => {
-      alert(err.message);
-    });
-};
-
-// Giriş Yap
-window.login = () => {
-  const email = document.getElementById("lEmail").value;
-  const pass  = document.getElementById("lPass").value;
-
-  signInWithEmailAndPassword(auth, email, pass)
-    .then(() => {
-      alert("Giriş başarılı");
-    })
-    .catch(err => {
-      alert(err.message);
-    });
-};
-
-// Çıkış Yap (opsiyonel)
-window.logout = () => {
-  signOut(auth).then(() => {
-    alert("Çıkış yapıldı");
-  });
-};
-
-// Oturum durumu (opsiyonel)
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("Oturum açık:", user.email);
-  } else {
-    console.log("Oturum kapalı");
-  }
+    .then(() => alert("Kayıt başarılı"))
+    .catch(err => alert(err.message));
 });
 
+// Giriş
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const email = lEmail.value;
+  const pass = lPass.value;
+
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(() => alert("Giriş başarılı"))
+    .catch(err => alert(err.message));
+});
