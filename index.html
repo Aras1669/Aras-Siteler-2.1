@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <title>Kullanıcı Girişi</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
 
-
-  <!--<h1>Aras</h1>-->
-
-  <div id="Login">
-    <button class="button" onclick="moveRight()" id="Değistir" style="display: none;">Giriş Yap</button>
+<div id="Giris">
+  <div id="Login" style="display: block;">
     <h2>Kayıt Oluştur</h2>
-    <input type="email" id="rEmail" placeholder="Email" autocomplete="off">
-    <input type="password" id="rPass" placeholder="Şifre" autocomplete="off">
+    <input type="email" id="rEmail" placeholder=" Email" autocomplete="off">
+    <input type="password" id="rPass" placeholder=" Şifre" autocomplete="off">
     <button id="registerBtn">Kayıt Ol</button>
   </div>
-
+  <div id="Sign" style="display: none;">
+    <h2>Giriş Yap</h2>
+    <input type="email" id="lEmail" placeholder="Email">
+    <input type="password" id="lPass" placeholder="Şifre">
+    <button id="loginBtn">Giriş Yap</button>
+  </div>
+</div>
 
 
 <script type="module" src="index.js"></script>
 </body>
 </html>
-
-
