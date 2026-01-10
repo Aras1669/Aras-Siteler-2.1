@@ -1,6 +1,11 @@
-#Login {
+* {
+    user-select: none;
+    box-sizing: content-box;
+}
+
+#Giris {
     width: 400px;
-    height: 500px;
+    height: 450px;
     background: #1e1e1e;
     border-radius: 12px;
     position: relative;
@@ -9,8 +14,9 @@
     margin-left: auto;
 }
 
-#Login h2 {
-    width: 200px;
+#Giris h2 {
+    width: 270px;
+    height: 50px;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -19,11 +25,11 @@
     font-size: 40px;
 }
 
-#Login input {
-    width: 275px;
+#Giris input {
+    width: 325px;
     height: 30px;
     background-color: rgb(235, 235, 235);
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 15px;
     outline-style: none;
     border: none;
@@ -32,5 +38,42 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#Giris button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(130, 175, 200);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-family: "Lexend";
+    border: none;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+#Giris button:hover {
+    transition: 0.2s;
+    width: 195px;
+    margin-left: 102.5px;
+    height: 45px;
+    margin-top: 52.5px;
+    border-radius: 17.5px;
+    background-color: rgb(100, 150, 175);
+    box-shadow: 0 0 10px 0 gray;
+}
+
+#Giris input:hover {
+    transition: 0.2s;
+    box-shadow: 0 0 10px 3px red;
+    border-radius: 7.5px;
+}
+
+#Giris input:focus {
+    transition: 0.2s;
+    box-shadow: 0 0 5px 2px rgba(0, 89, 255);
+    border-radius: 15px;
 }
