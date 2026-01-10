@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Kullanıcı Girişi</title>
+  <link rel="stylesheet" href="index.css"> 
 </head>
 <body>
 
-<h1>Aras</h1>
-<h2>Kayıt Ol</h2>
-<input type="email" id="rEmail" placeholder="Email">
-<input type="password" id="rPass" placeholder="Şifre">
-<button id="registerBtn">Kayıt Ol</button>
 
-<h2>Giriş Yap</h2>
-<input type="email" id="lEmail" placeholder="Email">
-<input type="password" id="lPass" placeholder="Şifre">
-<button id="loginBtn">Giriş Yap</button>
 
-<!-- ⚠️ type="module" ŞART -->
+  <h1>Aras</h1>
+
+  <div id="Login">
+    <button class="button" onclick="moveRight()" id="Değistir" style="display: none;">Giriş Yap</button>
+    <h2>Kayıt Oluştur</h2>
+    <input type="email" id="rEmail" placeholder="Email" autocomplete="off">
+    <input type="password" id="rPass" placeholder="Şifre" autocomplete="off">
+    <button id="registerBtn">Kayıt Ol</button>
+  </div>
+
+
+
 <script type="module" src="index.js"></script>
 </body>
 </html>
-
-
