@@ -1,30 +1,61 @@
 * {
     user-select: none;
-    box-sizing: content-box;
-}
+    box-sizing: content-box;     }
+body {
+    background-color: #505050;     }
+
+
+
 
 #Giris {
     width: 400px;
-    height: 450px;
+    height: 500px;
     background: #1e1e1e;
-    border-radius: 12px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
+    margin-top: 50px;
     margin-right: auto;
-    margin-left: auto;
-}
-
+    margin-left: auto;     }
+#YatayBar {
+    width: 40%;
+    height: 100%;
+    background-color: rgba(35, 40, 125, 0.5);
+    transform: skewX(10deg);
+    overflow: visible;
+    margin-left: -45px;     }
+#Login {
+    width: 400px;
+    height: 500px;
+    transform: skewX(-10deg);
+    margin-left: 45px;     }
+#Sign {
+    width: 400px;
+    height: 500px;
+    transform: skewX(-10deg);
+    margin-left: 45px;     }
+#Giris #Switch {
+    width: fit-content;
+    height: 30px;
+    font-size: 12.5px;
+    margin: 10px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff10;
+    color: black;     }
 #Giris h2 {
-    width: 270px;
+    width: fit-content;
     height: 50px;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0;
     color: rgb(235, 235, 235);
     font-family: "Lexend";
-    font-size: 40px;
-}
-
+    font-size: 40px;     }
 #Giris input {
     width: 325px;
     height: 30px;
@@ -36,15 +67,14 @@
     font-family: "Lexend";
     font-size: 30px;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-}
-
+    margin-left: 22.5px;
+    margin-right: 22.5px;
+    margin-bottom: 30px;     }
 #Giris button {
     width: 200px;
     height: 50px;
-    background-color: rgb(130, 175, 200);
+    background-color: rgb(2, 88, 145);
+    padding: 0;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 30px;
@@ -52,11 +82,12 @@
     border: none;
     border-radius: 10px;
     margin-left: 100px;
-    margin-top: 50px;
-}
+    margin-right: 100px;
+    margin-top: 50px;     }
+
 
 #Giris button:hover {
-    transition: 0.2s;
+    transition: 0.3s;
     width: 195px;
     margin-left: 102.5px;
     height: 45px;
@@ -64,16 +95,14 @@
     border-radius: 17.5px;
     background-color: rgb(100, 150, 175);
     box-shadow: 0 0 10px 0 gray;
-}
-
+    backdrop-filter: blur(400px);     }
 #Giris input:hover {
-    transition: 0.2s;
+    transition: 0.3s;
     box-shadow: 0 0 10px 3px red;
-    border-radius: 7.5px;
-}
+    border-radius: 7.5px;     }
+
 
 #Giris input:focus {
-    transition: 0.2s;
+    transition: 0.3s;
     box-shadow: 0 0 5px 2px rgba(0, 89, 255);
-    border-radius: 15px;
-}
+    border-radius: 15px;     }
