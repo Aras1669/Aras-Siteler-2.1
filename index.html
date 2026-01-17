@@ -13,7 +13,7 @@
 <div id="Giris" style="display: block;">
   <div id="YatayBar">
     <div id="Sign" style="display: none;">
-      <button class="Switch">Login Your Account</button>
+      <button id="SwitchLogin" onclick="login()">Login Your Account</button>
       <br><br>
       <h2>Kayıt Oluştur</h2>
       <input type="email" id="rEmail" placeholder=" Email" autocomplete="off">
@@ -21,7 +21,7 @@
       <button id="registerBtn">Kayıt Ol</button>
     </div>
     <div id="Login" style="display: block;">
-      <button class="Switch" onclick="create()">Create An Account</button>
+      <button id="SwitchCreate" onclick="create()">Create An Account</button>
       <br><br>
       <h2>Giriş Yap</h2>
       <input type="email" id="lEmail" placeholder=" Email">
@@ -52,6 +52,12 @@ function create() {
   for (let i=0; i<1; i++) {
     Sign.style.display = "block";
     Login.style.display = "none";
+  }
+}
+function login() {
+  for (let i=0; i<1; i++) {
+    Sign.style.display = "none";
+    Login.style.display = "block";
   }
 }
 
