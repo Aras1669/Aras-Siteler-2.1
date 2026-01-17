@@ -48,23 +48,41 @@
 const Login = document.getElementById("Login");
 const Sign = document.getElementById("Sign");
 const YatayBar = document.getElementById("YatayBar");
+Login.style.opacity = 1;
+Sign.style.opacity = 0;
+
+
+let artıs = 0;
+
 function create() {
-  for (let i=0; i<20; i++) {
-    Sign.style.display = "block";
+  Sign.style.opacity = 0;
+  Sign.style.display = "block";
+
+  setTimeout (()=> {
+    for (let i=0; i<20; i++) {
+      Login.style.opacity -= 0.05;
+      Sign.style.opacity = parseFloat(Sign.style.opacity) + 0.05;
+      console.log("Aras");
+    }
     Login.style.display = "none";
-  }
+  }, 1000);
 }
 function login() {
-  for (let i=0; i<20; i++) {
+  Login.style.opacity = 0;
+  Login.style.display = "block";
+
+  setTimeout (()=> {
+    for (let i=0; i<20; i++) {
+      Login.style.display = "block";
+      Sign.style.opacity -= 0.05;
+      Login.style.opacity = parseFloat(Login.style.opacity) + 0.05;
+      console.log("Aras");
+    }
     Sign.style.display = "none";
-    Login.style.display = "block";
-  }
+  }, 1000);
 }
 
   
 </script>
 </body>
 </html>
-
-
-
