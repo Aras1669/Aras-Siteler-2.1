@@ -20,7 +20,7 @@
       <button id="registerBtn">Kayıt Ol</button>
     </div>
     <div id="Login" style="display: block;">
-      <button id="Switch">Create An Account</button>
+      <button id="Switch" onclick="create()">Create An Account</button>
       <br><br>
       <h2>Giriş Yap</h2>
       <input type="email" id="lEmail" placeholder=" Email">
@@ -44,8 +44,19 @@
   console.log("");
   console.log('"bbproyes@gmail.com"');
 
+const Login = getElementById("Login");
+const Sign = getElementById("Sign");
+const YatayBar = getElementById("YatayBar");
+function create() {
+  for (let i=0; i<3; i++) {
+    Sign.style.display = "block";
+    Login.style.display = "none";
+  }
+}
 
+  
 </script>
 </body>
 </html>
+
 
