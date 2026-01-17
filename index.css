@@ -28,11 +28,13 @@ body {
 #Login {
     width: 400px;
     height: 500px;
+    position: absolute;
     transform: skewX(-10deg);
     margin-left: 45px;     }
 #Sign {
     width: 400px;
     height: 500px;
+    position: absolute;
     transform: skewX(-10deg);
     margin-left: 45px;     }
 #Giris #SwitchLogin {
@@ -119,4 +121,3 @@ body {
     transition: 0.3s;
     box-shadow: 0 0 5px 2px rgba(0, 89, 255);
     border-radius: 15px;     }
-
