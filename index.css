@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hepta+Slab:wght@1..900&family=Lexend:wght@100..900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap');
 * {
     user-select: none;
     box-sizing: content-box;     }
@@ -118,3 +119,4 @@ body {
     transition: 0.3s;
     box-shadow: 0 0 5px 2px rgba(0, 89, 255);
     border-radius: 15px;     }
+
