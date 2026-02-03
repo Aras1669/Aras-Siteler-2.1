@@ -19,7 +19,7 @@ body {
     margin-right: auto;
     margin-left: auto;     }
 #YatayBar {
-    width: 40%;
+    width: 60%;
     height: 100%;
     background-color: rgba(35, 40, 125, 0.5);
     transform: skewX(10deg);
