@@ -51,20 +51,21 @@ Sign.style.opacity = 0;
 
 
 
-function OpacityDown(id) {
-let x = document.getElementById(id);
-  for (let i=0; i<40; i++) {
-    setTimeout (()=> {
-      x.style.opacity = parseFloat(x.style.opacity) - 0.025;
-
-    }, artıs);
-    artıs += 25;
+function OpacityDown(x) {
+  if (x === 1) {
+    for (let i=0; i<40; i++) {
+      setTimeout (()=> {
+        x.style.opacity = parseFloat(x.style.opacity) - 0.025;
+        alert("Aras");
+      }, artıs);
+      artıs += 25;
+    }
+    setTimeout(()=> {
+      artıs = 0;
+      console.log("Aras");
+      alert("Aras");
+    }, 1000);
   }
-  setTimeout(()=> {
-    artıs = 0;
-    console.log("Aras");
-    alert("Aras");
-  }, 1000);
 }
 
   
