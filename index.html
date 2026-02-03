@@ -49,6 +49,21 @@ Login.style.opacity = 1;
 Sign.style.opacity = 0;
 
 
+
+
+function OpacityDownSign() {
+  for (let i=0; i<40; i++) {
+    setTimeout (()=> {
+      Sign.style.opacity = parseFloat(Sign.style.opacity) - 0.025;
+    }, artıs);
+    artıs += 6.25;
+  }
+  setTimeout(()=> {
+    artıs = 0;
+  }, 1000);
+}
+
+
 function OpacityDownLogin() {
   for (let i=0; i<40; i++) {
     setTimeout (()=> {
@@ -76,6 +91,22 @@ function OpacityUpSign() {
 }
 
 
+function OpacityUpLogin() {
+  for (let i=0; i<40; i++) {
+    setTimeout (()=> {
+      Login.style.opacity = parseFloat(Login.style.opacity) + 0.025;
+    }, artıs);
+    artıs += 6.25;
+  }
+  Login.style.marginLeft = "-285px";
+  setTimeout(()=> {
+    artıs = 0;
+  }, 1000);
+}
+
+
+
+
 function YatayBarSag() {
   for (let i=0; i<40; i++) {
     setTimeout (()=> {
@@ -85,6 +116,19 @@ function YatayBarSag() {
     artıs += 12.5;
   }
 }
+
+
+function YatayBarSol() {
+  for (let i=0; i<40; i++) {
+    setTimeout (()=> {
+      YatayBarMargin -= 8.25;
+      YatayBar.style.marginLeft = YatayBarMargin + "px";
+    }, artıs);
+    artıs += 12.5;
+  }
+}
+
+
 
   
 function create() {
@@ -109,17 +153,9 @@ function login() {
     tıklandı = 1;
     Login.style.opacity = 0;
     Login.style.display = "block";
-    for (let i=0; i<40; i++) {
-      setTimeout (()=> {
-        YatayBarMargin += -8.25;
-        YatayBar.style.marginLeft = YatayBarMargin + "px";
-        Login.style.marginLeft = (0 - YatayBarMargin) + "px";
-        Login.style.opacity = parseFloat(Login.style.opacity) + 0.025;
-        Sign.style.opacity = parseFloat(Sign.style.opacity) - 0.025;
-        Sign.style.marginLeft = (0 - YatayBarMargin) + "px";
-      }, artıs);
-      artıs += 25;
-    }
+    OpacityDownSign();
+    YatayBarSol();
+    OpacityUpLogin();
     setTimeout(() => {
       artıs = 0;
       Sign.style.display = "none";
