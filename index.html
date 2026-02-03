@@ -49,13 +49,25 @@ Login.style.opacity = 1;
 Sign.style.opacity = 0;
 
 
-
 function OpacityDownLogin() {
   for (let i=0; i<40; i++) {
     setTimeout (()=> {
       Login.style.opacity = parseFloat(Login.style.opacity) - 0.025;
     }, artıs);
-    artıs += 12.5;
+    artıs += 6.25;
+  }
+  setTimeout(()=> {
+    artıs = 0;
+  }, 1000);
+}
+
+
+function OpacityUpSign() {
+  for (let i=0; i<40; i++) {
+    setTimeout (()=> {
+      Sign.style.opacity = parseFloat(Sign.style.opacity) + 0.025;
+    }, artıs);
+    artıs += 6.25;
   }
   setTimeout(()=> {
     artıs = 0;
@@ -81,12 +93,13 @@ function create() {
     Sign.style.display = "block";
     OpacityDownLogin();
     YatayBarSag();
+    OpacityUpSign();
     setTimeout(() => {
       artıs = 0;
       Login.style.display = "none";
       tıklandı = 0;
       alert("Aras");
-    }, 10000);
+    }, 10);
   }
 }
 
