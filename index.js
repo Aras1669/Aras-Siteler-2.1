@@ -1,9 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+
 import {
   getAuth,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
@@ -18,22 +25,44 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Kayıt
-document.getElementById("registerBtn").addEventListener("click", () => {
-  const email = rEmail.value;
-  const pass = rPass.value;
 
-  createUserWithEmailAndPassword(auth, email, pass)
-    .then(() => alert("Kayıt başarılı"))
-    .catch(err => alert(err.message));
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    window.location.href = "panel.html";
+  }
 });
+
 
 // Giriş
 document.getElementById("loginBtn").addEventListener("click", () => {
-  const email = lEmail.value;
-  const pass = lPass.value;
+
+  const email = document.getElementById("lEmail").value;
+  const pass = document.getElementById("lPass").value;
 
   signInWithEmailAndPassword(auth, email, pass)
-    .then(() => alert("Giriş başarılı"))
-    .catch(err => alert(err.message));
+    .then(() => {
+      window.location.href = "panel.html";
+    })
+    .catch(err => {
+      alert(err.message);
+    });
+
+});
+
+
+// Kayıt
+document.getElementById("registerBtn").addEventListener("click", () => {
+
+  const email = document.getElementById("rEmail").value;
+  const pass = document.getElementById("rPass").value;
+
+  createUserWithEmailAndPassword(auth, email, pass)
+    .then(() => {
+      alert("Kayıt başarılı!");
+    })
+    .catch(err => {
+      alert(err.message);
+    });
+
 });
