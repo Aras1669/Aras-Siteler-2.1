@@ -40,10 +40,10 @@ auth.onAuthStateChanged(async (user) => {
     alert("Firestore cevap verdi ✅");
 
     if (doc.exists) {
-      document.getElementById("secretText").innerText =
+      document.getElementById("text").innerText =
         doc.data().content;
     } else {
-      document.getElementById("secretText").innerText =
+      document.getElementById("text").innerText =
         "Veri yok";
     }
 
