@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        el.innerText = snap.data().GizliYazi;
+        el.innerText = JSON.stringify(snap.data());
 
       } else {
 
