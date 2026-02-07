@@ -60,3 +60,22 @@ auth.onAuthStateChanged(async (user) => {
   }
 
 });
+
+
+// Çıkış yap
+function logout() {
+
+  auth.signOut()
+    .then(() => {
+
+      alert("Çıkış yapıldı ✅");
+      window.location.href = "index.html";
+
+    })
+    .catch((error) => {
+
+      alert("Çıkış hatası: " + error.message);
+
+    });
+
+}
