@@ -53,6 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const el = document.getElementById("text");
 
+        el.innerText = dataa.text;
+        
+        
         if (!el) {
           alert("text ID bulunamadı!");
           return;
