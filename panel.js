@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (snap.exists()) {
 
-        const data = snap.data();
+        const dataa = snap.data();
 
         const el = document.getElementById("text");
 
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        el.innerText = JSON.stringify(snap.data());
+        el.innerText = JSON.stringify(dataa.GizliYazi);
 
       } else {
 
