@@ -41,7 +41,7 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   // Yazı
-  const ref = doc(db, "secretText", "main");
+  const ref = doc(db, "BuArasinGizli", "BuArasinGizli");
   const snap = await getDoc(ref);
 
   if (snap.exists()) {
