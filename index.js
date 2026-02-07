@@ -44,7 +44,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     .then(() => {
       window.location.href = "panel.html";
     })
-    .catch(err => {
+    .catch((error) => {
       alert(err.message);
     });
 
@@ -61,7 +61,7 @@ document.getElementById("registerBtn").addEventListener("click", () => {
     .then(() => {
       alert("Kayıt başarılı!");
     })
-    .catch(err => {
+    .catch((error) => {
       alert(err.message);
     });
 
