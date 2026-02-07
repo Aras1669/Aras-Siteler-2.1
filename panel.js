@@ -1,3 +1,7 @@
+
+
+
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
 import {
@@ -13,6 +17,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
 
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
   authDomain: "login-aras-siteler.firebaseapp.com",
@@ -25,74 +30,68 @@ const firebaseConfig = {
 
 
 // Init
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-const auth = firebase.auth();
-const db = firebase.firestore();
 
-alert("Firebase yüklendi ✅");
-
-// Auth kontrol
-auth.onAuthStateChanged(async (user) => {
-
-  alert("Auth kontrol edildi ✅");
+// AUTH KONTROL
+onAuthStateChanged(auth, async (user) => {
 
   if (!user) {
-    alert("Giriş yok, geri dön");
     window.location.href = "index.html";
     return;
   }
 
-  alert("User var: " + user.email);
+  console.log("Giriş yapan:", user.email);
 
   try {
 
-    alert("Firestore okunuyor...");
+    // Firestore yolu (senin ekranına göre)
+    const ref = doc(db, "main", "main");
 
-    const doc = await db
-      .collection("main")
-      .doc("main")
-      .get();
+    const snap = await getDoc(ref);
 
-    alert("Firestore cevap verdi ✅");
+    console.log("Firestore:", snap.data());
 
-    if (doc.exists) {
+    if (snap.exists()) {
+
+      const data = snap.data();
 
       document.getElementById("text").innerText =
-        doc.data().GizliYazi;
+        data.GizliYazi || "Veri boş";
 
     } else {
 
       document.getElementById("text").innerText =
-        "Veri yok";
+        "Doküman yok";
 
     }
 
-  } catch (e) {
+  } catch (err) {
 
-    alert("Hata: " + e.message);
+    alert("Hata: " + err.message);
 
   }
 
 });
 
 
-// Çıkış yap
-function logout() {
+// LOGOUT
+window.logout = function () {
 
-  auth.signOut()
+  signOut(auth)
     .then(() => {
 
-      alert("Çıkış yapıldı ✅");
+      console.log("Çıkış yapıldı");
+
       window.location.href = "index.html";
 
     })
-    .catch((error) => {
+    .catch((e) => {
 
-      alert("Çıkış hatası: " + error.message);
+      alert("Logout hata: " + e.message);
 
     });
 
-}
-
-alert(doc.data());
+};
