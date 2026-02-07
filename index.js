@@ -1,6 +1,4 @@
-alert("çalışıyor");
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-
+alert("index.js çalışıyor ✅");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
@@ -12,7 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
 
-
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
   authDomain: "login-aras-siteler.firebaseapp.com",
@@ -23,11 +21,13 @@ const firebaseConfig = {
   measurementId: "G-ZLEH0TKWLK"
 };
 
+
+// Firebase başlat
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
-
+// Giriş yapılmışsa panele at
 onAuthStateChanged(auth, (user) => {
   if (user) {
     window.location.href = "panel.html";
@@ -35,35 +35,45 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
-// Giriş
+// LOGIN
 document.getElementById("loginBtn").addEventListener("click", () => {
 
   const email = document.getElementById("lEmail").value;
   const pass = document.getElementById("lPass").value;
+
+  if(email === "" || pass === ""){
+    alert("Boş alan bırakma!");
+    return;
+  }
 
   signInWithEmailAndPassword(auth, email, pass)
     .then(() => {
       window.location.href = "panel.html";
     })
     .catch((error) => {
-      alert(err.message);
+      alert(error.message);
     });
 
 });
 
 
-// Kayıt
+// REGISTER
 document.getElementById("registerBtn").addEventListener("click", () => {
 
   const email = document.getElementById("rEmail").value;
   const pass = document.getElementById("rPass").value;
 
+  if(email === "" || pass === ""){
+    alert("Boş alan bırakma!");
+    return;
+  }
+
   createUserWithEmailAndPassword(auth, email, pass)
     .then(() => {
-      alert("Kayıt başarılı!");
+      alert("Kayıt başarılı ✅");
     })
     .catch((error) => {
-      alert(err.message);
+      alert(error.message);
     });
 
 });
