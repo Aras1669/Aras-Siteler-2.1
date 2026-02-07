@@ -79,3 +79,5 @@ function logout() {
     });
 
 }
+
+alert(doc.data());
