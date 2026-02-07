@@ -58,7 +58,7 @@ onAuthStateChanged(auth, async (user) => {
       const data = snap.data();
 
       document.getElementById("text").innerText =
-        data.GizliYazi || "Veri boş";
+      data.GizliYazi;
 
     } else {
 
