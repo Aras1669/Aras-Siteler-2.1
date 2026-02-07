@@ -51,8 +51,7 @@ onAuthStateChanged(auth, async (user) => {
     const ref = doc(db, "main", "main");
 
     const snap = await getDoc(ref);
-
-    console.log("Firestore:", snap.data());
+    alert("Gelen veri: " + JSON.stringify(snap.data()));
 
     if (snap.exists()) {
 
