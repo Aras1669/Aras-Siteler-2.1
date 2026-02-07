@@ -17,7 +17,6 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
 
   // Firebase Config
-
   const firebaseConfig = {
     apiKey: "AIzaSyAVanlbwHO2CFO_45R9ez7Os6v4h5y64bM",
     authDomain: "login-aras-siteler.firebaseapp.com",
