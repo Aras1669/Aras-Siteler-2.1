@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const ref = doc(db, "main", "main");
       const snap = await getDoc(ref);
-
+      alert("Gelen veri: " + JSON.stringify(snap.data()));
+      
       if (snap.exists()) {
 
         const data = snap.data();
